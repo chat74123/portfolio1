@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-label="Logo design placeholder">
+  <rect width="900" height="720" fill="#161615"/>
+  <rect x="70" y="70" width="760" height="580" rx="18" fill="#f7f4ed"/>
+  <g transform="translate(220 160)">
+    <rect x="0" y="0" width="190" height="190" rx="42" fill="#d7ff35"/>
+    <circle cx="300" cy="95" r="95" fill="#66d9e8"/>
+    <path d="M490 0l110 190H380z" fill="#ff6f61"/>
+    <path d="M50 310h140v140H50zM270 310l70 140 70-140h80l-112 190h-76L190 310z" fill="#161615"/>
+  </g>
+  <text x="86" y="594" fill="#161615" font-family="Arial, sans-serif" font-size="44" font-weight="900">LOGO GRID / SYMBOL SET</text>
+</svg>

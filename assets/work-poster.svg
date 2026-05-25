@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1060" role="img" aria-label="Poster design placeholder">
+  <rect width="720" height="1060" fill="#f7f4ed"/>
+  <rect x="0" y="0" width="720" height="360" fill="#ff6f61"/>
+  <rect x="0" y="360" width="360" height="700" fill="#161615"/>
+  <rect x="360" y="360" width="360" height="700" fill="#66d9e8"/>
+  <circle cx="360" cy="360" r="210" fill="#d7ff35"/>
+  <path d="M120 790l180-310 180 310z" fill="#f7f4ed"/>
+  <text x="48" y="140" fill="#161615" font-family="Arial, sans-serif" font-size="76" font-weight="900">POSTER</text>
+  <text x="410" y="894" fill="#161615" font-family="Arial, sans-serif" font-size="34" font-weight="900">CITY EVENT</text>
+</svg>

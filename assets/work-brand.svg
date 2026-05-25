@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-label="Brand VI design placeholder">
+  <rect width="900" height="720" fill="#f7f4ed"/>
+  <rect x="60" y="70" width="230" height="580" rx="14" fill="#161615"/>
+  <rect x="334" y="70" width="506" height="250" rx="14" fill="#d7ff35"/>
+  <rect x="334" y="360" width="238" height="290" rx="14" fill="#66d9e8"/>
+  <rect x="602" y="360" width="238" height="290" rx="14" fill="#ff6f61"/>
+  <circle cx="175" cy="250" r="76" fill="#f7f4ed"/>
+  <text x="100" y="548" fill="#f7f4ed" font-family="Arial, sans-serif" font-size="42" font-weight="900">VI</text>
+  <text x="382" y="226" fill="#161615" font-family="Arial, sans-serif" font-size="58" font-weight="900">BRAND SYSTEM</text>
+</svg>

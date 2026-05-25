@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-label="Motion design placeholder">
+  <rect width="900" height="720" fill="#111111"/>
+  <g opacity=".95">
+    <rect x="74" y="124" width="280" height="280" rx="34" fill="#d7ff35"/>
+    <rect x="262" y="210" width="280" height="280" rx="34" fill="#66d9e8"/>
+    <rect x="450" y="296" width="280" height="280" rx="34" fill="#ff6f61"/>
+  </g>
+  <g fill="none" stroke="#f7f4ed" stroke-width="6" opacity=".7">
+    <path d="M90 604c170-90 300-90 470 0s250 72 318-12"/>
+    <path d="M90 92c130 64 250 54 360-30 92-70 234-62 348 24"/>
+  </g>
+  <text x="74" y="646" fill="#f7f4ed" font-family="Arial, sans-serif" font-size="54" font-weight="900">MOTION TITLE</text>
+</svg>

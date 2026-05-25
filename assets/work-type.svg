@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-label="Typography design placeholder">
+  <rect width="900" height="720" fill="#161615"/>
+  <g fill="#f7f4ed" font-family="Arial Black, Arial, sans-serif" font-weight="900">
+    <text x="70" y="265" font-size="260">Aa</text>
+    <text x="480" y="265" font-size="260" opacity=".38">字</text>
+    <text x="70" y="520" font-size="210" fill="#d7ff35">TYPE</text>
+  </g>
+  <g stroke="#ff6f61" stroke-width="4">
+    <path d="M70 590h760M70 120h760M248 70v590M638 70v590"/>
+  </g>
+</svg>
