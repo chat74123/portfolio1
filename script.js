@@ -11,6 +11,7 @@ if (!body.classList.contains("case-page")) {
   document.body.appendChild(cursor);
 
   const interactive = "a, button, .project-gallery, .ip-preview-card, figure";
+  const repertoireGroups = Array.from(document.querySelectorAll(".repertoire div"));
 
   window.addEventListener("pointermove", (event) => {
     cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
@@ -24,7 +25,16 @@ if (!body.classList.contains("case-page")) {
       }
     }
 
+    const activeRepertoireGroup = event.target.closest(".repertoire div");
+    repertoireGroups.forEach((group) => {
+      group.classList.toggle("is-expanded", group === activeRepertoireGroup);
+    });
+
     cursor.classList.toggle("is-active", Boolean(event.target.closest(interactive)));
+  });
+
+  document.querySelector(".repertoire")?.addEventListener("pointerleave", () => {
+    repertoireGroups.forEach((group) => group.classList.remove("is-expanded"));
   });
 
   window.addEventListener("scroll", () => {
@@ -47,6 +57,51 @@ if (!body.classList.contains("case-page")) {
   }, { threshold: 0.16 });
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+  document.querySelectorAll(".repertoire div").forEach((group) => {
+    group.addEventListener("pointermove", (event) => {
+      const rect = group.getBoundingClientRect();
+      group.style.setProperty("--spot-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+      group.style.setProperty("--spot-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+    });
+  });
+
+  const navItems = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  const navTargets = navItems
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setActiveNav = (id) => {
+    navItems.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          link.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  if (navTargets.length) {
+    setActiveNav(navTargets[0].id);
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: "-34% 0px -54%",
+      threshold: 0,
+    });
+
+    navTargets.forEach((target) => navObserver.observe(target));
+  }
 
   document.querySelectorAll(".nav-links a, .inline-link, .mail-link, .brand").forEach((element) => {
     element.classList.add("magnetic");
