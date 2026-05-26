@@ -12,7 +12,6 @@ if (!body.classList.contains("case-page")) {
 
   const interactive = "a, button, .project-gallery, .ip-preview-card, figure";
   const repertoireGroups = Array.from(document.querySelectorAll(".repertoire div"));
-<<<<<<< HEAD
   const expandedRepertoireHeight = 230;
 
   const getRepertoireGroupAtPoint = (x, y) => {
@@ -24,8 +23,6 @@ if (!body.classList.contains("case-page")) {
       return x >= rect.left && x <= rect.right && y >= rect.top && y <= bottom;
     });
   };
-=======
->>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
 
   window.addEventListener("pointermove", (event) => {
     cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
@@ -39,11 +36,7 @@ if (!body.classList.contains("case-page")) {
       }
     }
 
-<<<<<<< HEAD
     const activeRepertoireGroup = getRepertoireGroupAtPoint(event.clientX, event.clientY);
-=======
-    const activeRepertoireGroup = event.target.closest(".repertoire div");
->>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
     repertoireGroups.forEach((group) => {
       group.classList.toggle("is-expanded", group === activeRepertoireGroup);
     });
@@ -107,7 +100,6 @@ if (!body.classList.contains("case-page")) {
   if (navTargets.length) {
     setActiveNav(navTargets[0].id);
 
-<<<<<<< HEAD
     navItems.forEach((link) => {
       link.addEventListener("click", () => {
         const target = document.querySelector(link.getAttribute("href"));
@@ -116,8 +108,6 @@ if (!body.classList.contains("case-page")) {
       });
     });
 
-=======
->>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -132,11 +122,8 @@ if (!body.classList.contains("case-page")) {
     navTargets.forEach((target) => navObserver.observe(target));
   }
 
-<<<<<<< HEAD
   document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
-=======
-  document.querySelectorAll(".nav-links a, .inline-link, .mail-link, .brand").forEach((element) => {
->>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
+  document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
     element.classList.add("magnetic");
     element.addEventListener("pointermove", (event) => {
       const rect = element.getBoundingClientRect();
