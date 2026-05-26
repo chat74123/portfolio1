@@ -11,6 +11,18 @@ if (!body.classList.contains("case-page")) {
   document.body.appendChild(cursor);
 
   const interactive = "a, button, .project-gallery, .ip-preview-card, figure";
+  const repertoireGroups = Array.from(document.querySelectorAll(".repertoire div"));
+  const expandedRepertoireHeight = 230;
+
+  const getRepertoireGroupAtPoint = (x, y) => {
+    if (window.matchMedia("(max-width: 760px)").matches) return null;
+
+    return repertoireGroups.find((group) => {
+      const rect = group.getBoundingClientRect();
+      const bottom = Math.max(rect.bottom, rect.top + expandedRepertoireHeight);
+      return x >= rect.left && x <= rect.right && y >= rect.top && y <= bottom;
+    });
+  };
 
   window.addEventListener("pointermove", (event) => {
     cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
@@ -24,7 +36,16 @@ if (!body.classList.contains("case-page")) {
       }
     }
 
+    const activeRepertoireGroup = getRepertoireGroupAtPoint(event.clientX, event.clientY);
+    repertoireGroups.forEach((group) => {
+      group.classList.toggle("is-expanded", group === activeRepertoireGroup);
+    });
+
     cursor.classList.toggle("is-active", Boolean(event.target.closest(interactive)));
+  });
+
+  document.querySelector(".repertoire")?.addEventListener("pointerleave", () => {
+    repertoireGroups.forEach((group) => group.classList.remove("is-expanded"));
   });
 
   window.addEventListener("scroll", () => {
@@ -48,7 +69,60 @@ if (!body.classList.contains("case-page")) {
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-  document.querySelectorAll(".nav-links a, .inline-link, .mail-link, .brand").forEach((element) => {
+  document.querySelectorAll(".repertoire div").forEach((group) => {
+    group.addEventListener("pointermove", (event) => {
+      const rect = group.getBoundingClientRect();
+      group.style.setProperty("--spot-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+      group.style.setProperty("--spot-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+    });
+  });
+
+  const navItems = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  const navTargets = navItems
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setActiveNav = (id) => {
+    navItems.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          link.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  if (navTargets.length) {
+    setActiveNav(navTargets[0].id);
+
+    navItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target?.id) setActiveNav(target.id);
+        link.blur();
+      });
+    });
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: "-34% 0px -54%",
+      threshold: 0,
+    });
+
+    navTargets.forEach((target) => navObserver.observe(target));
+  }
+
+  document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
     element.classList.add("magnetic");
     element.addEventListener("pointermove", (event) => {
       const rect = element.getBoundingClientRect();
@@ -366,6 +440,19 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (!target) return;
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const header = document.querySelector(".site-header");
+    const isBottomNav = window.matchMedia("(max-width: 760px)").matches;
+    const offset = isBottomNav ? 18 : Math.ceil((header?.getBoundingClientRect().height || 70) + 28);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+
+    if (target.id) {
+      window.history.replaceState(null, "", `#${target.id}`);
+    }
   });
 });
