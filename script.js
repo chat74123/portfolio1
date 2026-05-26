@@ -159,10 +159,18 @@ if (!body.classList.contains("case-page")) {
 
   const videos = document.querySelectorAll(".auto-video");
   if (videos.length) {
+    const visibleVideos = new Set();
+
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target;
         if (entry.isIntersecting) {
+          visibleVideos.add(video);
+        } else {
+          visibleVideos.delete(video);
+        }
+
+        if (entry.isIntersecting && !document.hidden) {
           video.play().catch(() => {});
         } else {
           video.pause();
@@ -171,6 +179,15 @@ if (!body.classList.contains("case-page")) {
     }, { threshold: 0.48 });
 
     videos.forEach((video) => videoObserver.observe(video));
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        videos.forEach((video) => video.pause());
+        return;
+      }
+
+      visibleVideos.forEach((video) => video.play().catch(() => {}));
+    });
   }
 
   const posterStage = document.querySelector(".poster-stage");

@@ -812,12 +812,14 @@ video {
   content: "";
 }
 
-.aigc-cover-card img {
+.aigc-cover-card img,
+.aigc-cover-card video {
   object-position: top center;
   transition: transform 500ms ease;
 }
 
-.aigc-cover-card:hover img {
+.aigc-cover-card:hover img,
+.aigc-cover-card:hover video {
   transform: scale(1.035);
 }
 
