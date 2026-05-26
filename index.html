@@ -8,7 +8,7 @@
       name="description"
       content="平面设计师作品集，呈现品牌识别、商业海报、电商详情页、产品渲染、动态视觉与概念提案视觉等设计案例。"
     />
-    <link rel="stylesheet" href="styles.css?v=compact-top-nav" />
+    <link rel="stylesheet" href="styles.css?v=creative-browse-01" />
   </head>
   <body>
     <header class="site-header">
@@ -22,7 +22,21 @@
         <a href="#contact">联系</a>
       </nav>
     </header>
+    <nav class="project-atlas" aria-label="项目地图">
+      <a href="#aigc" data-index="01"><span>视觉提案</span></a>
+      <a href="#brand" data-index="02"><span>品牌识别</span></a>
+      <a href="#render" data-index="03"><span>产品渲染</span></a>
+      <a href="#detail" data-index="04"><span>详情页</span></a>
+      <a href="#ip" data-index="05"><span>IP 形象</span></a>
+      <a href="#poster-lab" data-index="06"><span>海报系统</span></a>
+      <a href="#product-design" data-index="07"><span>产品外观</span></a>
+    </nav>
 
+    <aside class="chapter-meter" aria-live="polite" aria-label="当前浏览章节">
+      <span class="chapter-meter-index">00</span>
+      <span class="chapter-meter-line"></span>
+      <span class="chapter-meter-title">Index</span>
+    </aside>
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="repertoire" aria-label="案例索引">
@@ -56,7 +70,7 @@
         </h1>
       </section>
 
-      <section id="essentials" class="intro" aria-labelledby="intro-title">
+      <section id="essentials" class="intro" aria-labelledby="intro-title" data-chapter="00" data-chapter-title="设计方法">
         <figure class="intro-image">
           <video
             class="auto-video"
@@ -83,7 +97,7 @@
       </section>
 
       <section id="work" class="work" aria-label="重点项目">
-        <article id="aigc" class="project-story">
+        <article id="aigc" class="project-story" data-chapter="01" data-chapter-title="视觉提案">
           <div class="aigc-entry">
             <a class="aigc-cover-card" href="aigc-design.html" aria-label="进入视觉提案完整案例">
               <figure>
@@ -114,7 +128,7 @@
           </div>
         </article>
 
-        <article id="brand" class="project-story project-story-light">
+        <article id="brand" class="project-story project-story-light" data-chapter="02" data-chapter-title="品牌识别">
           <div class="project-text">
             <div>
               <span>品牌识别 — 茶品牌系统设计</span>
@@ -156,7 +170,7 @@
           </div>
         </article>
 
-        <article id="render" class="project-story">
+        <article id="render" class="project-story" data-chapter="03" data-chapter-title="产品渲染">
           <div class="render-split">
             <figure class="render-cover">
               <img src="assets/portfolio/render-3d/1.png" alt="建模渲染案例第 1 张" />
@@ -198,7 +212,7 @@
           </div>
         </article>
 
-        <article id="detail" class="project-story project-story-light detail-story">
+        <article id="detail" class="project-story project-story-light detail-story" data-chapter="04" data-chapter-title="详情页设计">
           <div class="project-text">
             <div>
               <span>详情页设计 — 信息与转化</span>
@@ -263,7 +277,7 @@
           </div>
         </article>
 
-        <article id="ip" class="project-story ip-story">
+        <article id="ip" class="project-story ip-story" data-chapter="05" data-chapter-title="品牌 IP">
           <div class="project-text">
             <div>
               <span>品牌 IP — 惠宝形象设计</span>
@@ -299,7 +313,7 @@
         </article>
       </section>
 
-      <section id="poster-lab" class="poster-lab" aria-labelledby="poster-lab-title">
+      <section id="poster-lab" class="poster-lab" aria-labelledby="poster-lab-title" data-chapter="06" data-chapter-title="海报系统">
         <div class="poster-lab-heading">
           <span>Poster Lab</span>
           <h2 id="poster-lab-title">商业海报与活动主视觉</h2>
@@ -350,7 +364,7 @@
         </div>
       </section>
 
-      <section id="product-design" class="product-lab" aria-labelledby="product-lab-title">
+      <section id="product-design" class="product-lab" aria-labelledby="product-lab-title" data-chapter="07" data-chapter-title="产品外观">
         <div class="product-lab-heading">
           <span>Product Appearance</span>
           <h2 id="product-lab-title">产品外观与视觉呈现</h2>
@@ -428,7 +442,7 @@
         </div>
       </section>
 
-      <section id="archive" class="archive" aria-labelledby="archive-title">
+      <section id="archive" class="archive" aria-labelledby="archive-title" data-chapter="08" data-chapter-title="更多方向">
         <div class="archive-heading">
           <span>更多作品</span>
           <h2 id="archive-title">更多设计方向</h2>
@@ -457,7 +471,7 @@
         </div>
       </section>
 
-      <section id="profile" class="profile" aria-labelledby="profile-title">
+      <section id="profile" class="profile" aria-labelledby="profile-title" data-chapter="09" data-chapter-title="设计实践">
         <figure class="profile-card">
           <video
             class="auto-video"
@@ -488,7 +502,7 @@
         </div>
       </section>
 
-      <section id="contact" class="contact" aria-labelledby="contact-title">
+      <section id="contact" class="contact" aria-labelledby="contact-title" data-chapter="10" data-chapter-title="联系合作">
         <span>联系合作</span>
         <h2 id="contact-title">让视觉表达更准确，也更有记忆点。</h2>
         <div class="contact-info">
@@ -503,9 +517,10 @@
       <a href="#top">返回顶部</a>
     </footer>
 
-    <script src="script.js?v=compact-top-nav"></script>
+    <script src="script.js?v=creative-browse-01"></script>
   </body>
 </html>
+
 
 
 

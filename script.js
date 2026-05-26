@@ -1,4 +1,4 @@
-const page = document.documentElement;
+﻿const page = document.documentElement;
 const body = document.body;
 
 if (!body.classList.contains("case-page")) {
@@ -115,7 +115,50 @@ if (!body.classList.contains("case-page")) {
     navTargets.forEach((target) => navObserver.observe(target));
   }
 
-  document.querySelectorAll(".nav-links a, .inline-link, .mail-link, .brand").forEach((element) => {
+  const atlasLinks = Array.from(document.querySelectorAll(".project-atlas a[href^='#']"));
+  const chapterSections = Array.from(document.querySelectorAll("[data-chapter][id]"));
+  const chapterIndex = document.querySelector(".chapter-meter-index");
+  const chapterTitle = document.querySelector(".chapter-meter-title");
+  const chapterLine = document.querySelector(".chapter-meter-line");
+
+  const setActiveChapter = (section) => {
+    if (!section) return;
+    const id = section.id;
+    const chapter = section.dataset.chapter || "00";
+    const title = section.dataset.chapterTitle || "Index";
+
+    atlasLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+
+    if (chapterIndex) chapterIndex.textContent = chapter;
+    if (chapterTitle) chapterTitle.textContent = title;
+    if (chapterLine) {
+      const total = Math.max(chapterSections.length - 1, 1);
+      const current = Math.max(chapterSections.indexOf(section), 0);
+      chapterLine.style.setProperty("--chapter-progress", `${current / total}`);
+    }
+  };
+
+  if (chapterSections.length) {
+    setActiveChapter(chapterSections[0]);
+
+    const chapterObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActiveChapter(visible.target);
+    }, {
+      rootMargin: "-28% 0px -48% 0px",
+      threshold: [0.08, 0.2, 0.42, 0.68],
+    });
+
+    chapterSections.forEach((section) => chapterObserver.observe(section));
+  }
+  document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
     element.classList.add("magnetic");
     element.addEventListener("pointermove", (event) => {
       const rect = element.getBoundingClientRect();
@@ -453,3 +496,5 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
+
+
