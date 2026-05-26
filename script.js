@@ -203,11 +203,17 @@ if (!body.classList.contains("case-page")) {
   const videos = document.querySelectorAll(".auto-video");
   if (videos.length) {
     const visibleVideos = new Set();
+    const hydrateVideo = (video) => {
+      if (!video.dataset.src || video.getAttribute("src")) return;
+      video.src = video.dataset.src;
+      video.load();
+    };
 
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target;
         if (entry.isIntersecting) {
+          hydrateVideo(video);
           visibleVideos.add(video);
         } else {
           visibleVideos.delete(video);
@@ -219,7 +225,10 @@ if (!body.classList.contains("case-page")) {
           video.pause();
         }
       });
-    }, { threshold: 0.48 });
+    }, {
+      rootMargin: "0px",
+      threshold: 0.32,
+    });
 
     videos.forEach((video) => videoObserver.observe(video));
 
