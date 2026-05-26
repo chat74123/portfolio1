@@ -154,16 +154,27 @@ video {
 
 .nav-links {
   display: flex;
+<<<<<<< HEAD
   overflow: visible;
   flex-wrap: wrap;
   align-items: stretch;
   gap: 3px;
+=======
+  overflow: hidden;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
     rgba(8, 8, 8, 0.48);
+<<<<<<< HEAD
   padding: 4px;
+=======
+  padding: 5px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   pointer-events: auto;
   backdrop-filter: blur(22px);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
@@ -173,13 +184,18 @@ video {
   position: relative;
   display: inline-flex;
   isolation: isolate;
+<<<<<<< HEAD
   width: clamp(66px, 6.1vw, 92px);
   min-height: 42px;
+=======
+  min-height: 34px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.72);
+<<<<<<< HEAD
   padding: 0 8px;
   text-align: center;
   transition:
@@ -187,11 +203,21 @@ video {
     background 180ms ease,
     transform 180ms ease;
   will-change: color;
+=======
+  padding: 0 14px;
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
 }
 
 .nav-links a::before {
   position: absolute;
+<<<<<<< HEAD
   inset: 2px;
+=======
+  inset: 3px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   z-index: -1;
   border-radius: inherit;
   background: rgba(255, 255, 255, 0.95);
@@ -206,15 +232,26 @@ video {
 .nav-links a::after {
   position: absolute;
   left: 50%;
+<<<<<<< HEAD
   top: 5px;
   z-index: 1;
   width: 3px;
   height: 3px;
+=======
+  bottom: 5px;
+  z-index: 1;
+  width: 4px;
+  height: 4px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   border-radius: 50%;
   background: var(--accent);
   content: "";
   opacity: 0;
+<<<<<<< HEAD
   transform: translateX(-50%) translateY(-6px);
+=======
+  transform: translateX(-50%) translateY(6px);
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
   transition:
     opacity 180ms ease,
     transform 180ms ease;
@@ -236,6 +273,7 @@ video {
   transform: translateX(-50%) translateY(0);
 }
 
+<<<<<<< HEAD
 .nav-links a span,
 .nav-links a .nav-title {
   position: relative;
@@ -281,6 +319,11 @@ video {
 .nav-links a.is-active .nav-sub {
   opacity: 0.74;
   transform: translate(-50%, 0);
+=======
+.nav-links a span {
+  position: relative;
+  z-index: 1;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
 }
 
 .hero {
@@ -397,7 +440,11 @@ video {
     opacity 220ms ease,
     transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.42);
+<<<<<<< HEAD
   pointer-events: auto;
+=======
+  pointer-events: none;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
 }
 
 .repertoire div:hover,
@@ -2176,7 +2223,11 @@ video {
 
   .nav-links {
     width: 100%;
+<<<<<<< HEAD
     max-width: 560px;
+=======
+    max-width: 520px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
@@ -2193,10 +2244,16 @@ video {
   }
 
   .nav-links a {
+<<<<<<< HEAD
     width: 84px;
     min-height: 46px;
     flex: 0 0 auto;
     padding: 0 10px;
+=======
+    min-height: 40px;
+    flex: 0 0 auto;
+    padding: 0 14px;
+>>>>>>> 292c6727e922ce0834610811893c4ac7cc1b108f
     font-size: 11px;
   }
 
