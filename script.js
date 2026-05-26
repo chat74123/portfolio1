@@ -12,15 +12,15 @@ if (!body.classList.contains("case-page")) {
 
   const interactive = "a, button, .project-gallery, .ip-preview-card, figure";
   const repertoireGroups = Array.from(document.querySelectorAll(".repertoire div"));
-  const expandedRepertoireHeight = 230;
+  const repertoireExpandedHeight = 230;
 
   const getRepertoireGroupAtPoint = (x, y) => {
     if (window.matchMedia("(max-width: 760px)").matches) return null;
 
     return repertoireGroups.find((group) => {
       const rect = group.getBoundingClientRect();
-      const bottom = Math.max(rect.bottom, rect.top + expandedRepertoireHeight);
-      return x >= rect.left && x <= rect.right && y >= rect.top && y <= bottom;
+      const expandedBottom = Math.max(rect.bottom, rect.top + repertoireExpandedHeight);
+      return x >= rect.left && x <= rect.right && y >= rect.top && y <= expandedBottom;
     });
   };
 
@@ -44,7 +44,8 @@ if (!body.classList.contains("case-page")) {
     cursor.classList.toggle("is-active", Boolean(event.target.closest(interactive)));
   });
 
-  document.querySelector(".repertoire")?.addEventListener("pointerleave", () => {
+  document.querySelector(".repertoire")?.addEventListener("pointerleave", (event) => {
+    if (getRepertoireGroupAtPoint(event.clientX, event.clientY)) return;
     repertoireGroups.forEach((group) => group.classList.remove("is-expanded"));
   });
 
@@ -100,14 +101,6 @@ if (!body.classList.contains("case-page")) {
   if (navTargets.length) {
     setActiveNav(navTargets[0].id);
 
-    navItems.forEach((link) => {
-      link.addEventListener("click", () => {
-        const target = document.querySelector(link.getAttribute("href"));
-        if (target?.id) setActiveNav(target.id);
-        link.blur();
-      });
-    });
-
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -122,8 +115,7 @@ if (!body.classList.contains("case-page")) {
     navTargets.forEach((target) => navObserver.observe(target));
   }
 
-  document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
-  document.querySelectorAll(".inline-link, .mail-link, .brand").forEach((element) => {
+  document.querySelectorAll(".nav-links a, .inline-link, .mail-link, .brand").forEach((element) => {
     element.classList.add("magnetic");
     element.addEventListener("pointermove", (event) => {
       const rect = element.getBoundingClientRect();
@@ -441,19 +433,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (!target) return;
 
     event.preventDefault();
-    const header = document.querySelector(".site-header");
-    const isBottomNav = window.matchMedia("(max-width: 760px)").matches;
-    const offset = isBottomNav ? 18 : Math.ceil((header?.getBoundingClientRect().height || 70) + 28);
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: prefersReducedMotion ? "auto" : "smooth",
-    });
-
-    if (target.id) {
-      window.history.replaceState(null, "", `#${target.id}`);
-    }
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
