@@ -1,120 +1,196 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>惠宝品牌 IP 形象完整案例 | 视觉设计作品集</title>
-    <meta name="description" content="惠宝品牌 IP 形象完整案例，包含角色设定、应用延展与动态表情。" />
-    <link rel="stylesheet" href="styles.css?v=mobile-polish" />
-  </head>
-  <body class="case-page">
-    <header class="site-header">
-      <a class="brand" href="index.html#top" aria-label="返回首页">作品集</a>
-      <nav class="nav-links" aria-label="案例页导航">
-        <a href="index.html#ip">返回 IP 板块</a>
-        <a href="#static">静态图</a>
-        <a href="#motion">GIF 动图</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>惠宝 IP 形象设计</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="huibao-ip.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="global-nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="惠宝 IP 首页">
+        <span class="brand-mark">惠</span>
+        <span>惠宝 IP</span>
+      </a>
+      <div class="nav-links">
+        <a href="#story">角色</a>
+        <a href="#design">设定</a>
+        <a href="#motion">表情</a>
+        <a href="#world">应用</a>
+      </div>
+      <a class="buy-button" href="#contact">查看方案</a>
+    </nav>
+  </header>
 
-    <main>
-      <section class="case-page-hero">
-        <span>完整案例 / Brand Character Design</span>
-        <h1>惠宝品牌 IP 形象</h1>
-        <p>
-          案例呈现角色设定、姿态延展、应用画面与动态表情，按项目顺序组织，便于连续阅读完整设计过程。
-        </p>
-      </section>
+  <main id="top">
+    <section class="hero ip-hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-veil" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">WELCOME / 惠房 / 出省 安家筑梦</p>
+        <h1 id="hero-title">惠宝</h1>
+        <p class="hero-subtitle">惠州房产服务的专属 IP 形象，一个来自惠州、对“家”充满热爱的暖心置业搭子。</p>
+      </div>
+      <img class="hero-character" src="assets/ip/wave-cut.webp" alt="挥手打招呼的惠宝形象">
+      <div class="hero-stats" aria-label="角色亮点">
+        <span><strong>房子造型</strong>一眼读懂置业初心</span>
+        <span><strong>醒目的“惠”</strong>传递惠民购房理念</span>
+        <span><strong>憨爱可掬</strong>打造有温度的置业伙伴</span>
+      </div>
+    </section>
 
-      <section id="static" class="case-page-section" aria-labelledby="static-title">
-        <div class="case-page-heading">
+    <section class="intro-strip" aria-label="惠宝核心定位">
+      <div class="intro-inner">
+        <span>亲切引导</span>
+        <span>情绪陪伴</span>
+        <span>服务识别</span>
+        <span>周边延展</span>
+      </div>
+      <p>家的具象符号、惠州地域标识与软萌亲和形象共同组成惠宝的记忆点，让房产服务从信息传达变成更有温度的陪伴。</p>
+    </section>
+
+    <section class="story-scene scroll-scene" id="story" aria-labelledby="story-title">
+      <div class="sticky-stage story-stage">
+        <div class="story-copy">
+          <p class="eyebrow">Meet Huibao</p>
+          <h2 id="story-title">一个陪你在惠州安家的暖心搭子。</h2>
+          <p>惠宝永远带着治愈的笑容，像惠州的阳光一样温暖。向下滚动，从基础形象到出行、服务、宣传场景，逐步看到它如何成为购房者可以信赖的贴心伙伴。</p>
+        </div>
+        <div class="persona-frame" aria-label="惠宝角色滚动展示">
+          <img class="persona-image active" src="assets/ip/mascot-cut.webp" alt="惠宝基础形象">
+          <img class="persona-image" src="assets/ip/travel-cut.webp" alt="提着行李箱出行的惠宝">
+          <img class="persona-image" src="assets/ip/uniform-cut.webp" alt="穿着制服的惠宝">
+          <img class="persona-image" src="assets/ip/megaphone-cut.webp" alt="拿着扩音器播报的惠宝">
+          <span class="orb orb-one" aria-hidden="true"></span>
+          <span class="orb orb-two" aria-hidden="true"></span>
+        </div>
+        <div class="story-steps" aria-label="角色状态">
+          <article class="story-step active">
+            <span>01</span>
+            <strong>热情开朗</strong>
+            <p>永远带着治愈的笑容，像惠州的阳光一样温暖。</p>
+          </article>
+          <article class="story-step">
+            <span>02</span>
+            <strong>逛遍惠州</strong>
+            <p>打卡城市里的新楼盘与宝藏社区，熟悉每一处宜居风景。</p>
+          </article>
+          <article class="story-step">
+            <span>03</span>
+            <strong>真诚靠谱</strong>
+            <p>做事认真细致，是购房者可以信赖的贴心伙伴。</p>
+          </article>
+          <article class="story-step">
+            <span>04</span>
+            <strong>分享美好</strong>
+            <p>收集惠州的宜居故事，给大家推荐高性价比的好房子。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="design-section" id="design" aria-labelledby="design-title">
+      <div class="section-heading">
+        <p class="eyebrow dark">Design Language</p>
+        <h2 id="design-title">房子造型、醒目的“惠”、憨爱可掬。</h2>
+      </div>
+      <div class="turnaround-panel">
+        <img src="assets/ip/turnaround.webp" alt="惠宝正面、侧面和背面三视图">
+      </div>
+      <div class="design-notes">
+        <article>
           <span>01</span>
-          <h2 id="static-title">完整方案展示</h2>
-        </div>
-        <div class="ip-reference-stack" aria-label="惠宝 IP 形象完整方案">
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-01.jpg" alt="惠宝品牌 IP 形象第 1 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-02.jpg" alt="惠宝品牌 IP 形象第 2 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-03.jpg" alt="惠宝品牌 IP 形象第 3 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-04.jpg" alt="惠宝品牌 IP 形象第 4 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-05.jpg" alt="惠宝品牌 IP 形象第 5 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-06.jpg" alt="惠宝品牌 IP 形象第 6 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-07.jpg" alt="惠宝品牌 IP 形象第 7 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-08.jpg" alt="惠宝品牌 IP 形象第 8 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-09.jpg" alt="惠宝品牌 IP 形象第 9 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-10.jpg" alt="惠宝品牌 IP 形象第 10 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/previews/ip-11.jpg" alt="惠宝品牌 IP 形象第 11 张" />
-          </figure>
-        </div>
-      </section>
-
-      <section id="motion" class="case-page-section" aria-labelledby="motion-title">
-        <div class="case-page-heading">
+          <h3>家的具象符号</h3>
+          <p>房子造型让人一眼读懂置业初心，也让角色和“安家”主题自然绑定。</p>
+        </article>
+        <article>
           <span>02</span>
-          <h2 id="motion-title">动态表情延展</h2>
-        </div>
-        <div class="gif-grid case-gif-grid" aria-label="惠宝 IP GIF 动态图">
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847031791.gif" alt="惠宝 IP GIF 动态图 1" />
-            <figcaption>GIF 01</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847070315.gif" alt="惠宝 IP GIF 动态图 2" />
-            <figcaption>GIF 02</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847083556.gif" alt="惠宝 IP GIF 动态图 3" />
-            <figcaption>GIF 03</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847097886.gif" alt="惠宝 IP GIF 动态图 4" />
-            <figcaption>GIF 04</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847112921.gif" alt="惠宝 IP GIF 动态图 5" />
-            <figcaption>GIF 05</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847136824.gif" alt="惠宝 IP GIF 动态图 6" />
-            <figcaption>GIF 06</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847164442.gif" alt="惠宝 IP GIF 动态图 7" />
-            <figcaption>GIF 07</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/portfolio/ip-huibao/gif/lovegif_1776847406873.gif" alt="惠宝 IP GIF 动态图 8" />
-            <figcaption>GIF 08</figcaption>
-          </figure>
-        </div>
-      </section>
-    </main>
+          <h3>惠州地域标识</h3>
+          <p>胸前醒目的“惠”字强化地域记忆，传递惠民购房理念。</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>有温度的伙伴</h3>
+          <p>软萌亲和的形象降低信息距离，让惠宝成为更容易被信任的置业伙伴。</p>
+        </article>
+      </div>
+    </section>
 
-    <footer class="site-footer">
-      <span>© 2026 惠宝品牌 IP 形象</span>
-      <a href="index.html#ip">返回首页 IP 形象</a>
-    </footer>
-  </body>
+    <section class="motion-scene" id="motion" aria-labelledby="motion-title">
+      <div class="motion-stage">
+        <div class="motion-copy">
+          <p class="eyebrow">Expression System</p>
+          <h2 id="motion-title">传递温暖，也传递好消息。</h2>
+          <p>惠宝喜欢和大家聊天，用耐心和热情解答各种购房疑问。3D 与 2D 表情包让“来鹅城安家啦”拥有更轻松的传播语气。</p>
+        </div>
+        <div class="expression-layout">
+          <article class="expression-card expression-main">
+            <img src="assets/ip/expressions.webp" alt="惠宝多种 3D 表情">
+          </article>
+          <article class="expression-card sticker-card">
+            <img src="assets/ip/stickers.webp" alt="惠宝聊天表情包">
+            <div>
+              <span>Sticker Pack</span>
+              <h3>开心、点赞、拜拜、委屈，都能成为置业沟通里的轻松回应。</h3>
+            </div>
+          </article>
+          <article class="expression-card tone-card">
+            <span>Daily Tone</span>
+            <h3>用耐心和热情解答购房疑问。</h3>
+            <p>在促销宣传、社群运营、楼盘推荐和线上咨询中，惠宝可以承担提示、鼓励、推荐和陪伴等不同沟通功能。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="world-section" id="world" aria-labelledby="world-title">
+      <div class="section-heading compact">
+        <p class="eyebrow dark">Application</p>
+        <h2 id="world-title">从形象设定走向促销宣传与周边延展。</h2>
+      </div>
+      <div class="world-grid">
+        <article class="world-card wide">
+          <img src="assets/ip/station-hero.webp" alt="惠宝在高铁站场景中引导旅客">
+          <div>
+            <span>交通枢纽</span>
+            <h3>惠宝喊你，来鹅城安家啦。</h3>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/ip/merch.webp" alt="惠宝玩偶、钥匙扣和抱枕周边">
+          <div>
+            <span>商业周边</span>
+            <h3>把置业伙伴变成可触摸的品牌资产。</h3>
+          </div>
+        </article>
+        <article class="world-card">
+          <img src="assets/ip/jump.webp" alt="跳跃动作的惠宝">
+          <div>
+            <span>活动传播</span>
+            <h3>高铁造型、出行造型、促销宣传都能延展。</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-section" id="contact" aria-labelledby="contact-title">
+      <img src="assets/ip/wave-cut.webp" alt="挥手的惠宝">
+      <div>
+        <p class="eyebrow">Huibao IP System</p>
+        <h2 id="contact-title">用心惠每一天。</h2>
+        <p>惠宝以房产服务为核心，把惠州、安家、惠民购房理念与亲和角色结合起来，成为品牌与用户之间更温暖的连接方式。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>惠宝 IP 形象设计。文案依据《ip形象1.pdf》整理。</p>
+  </footer>
+
+  <script src="huibao-ip.js"></script>
+</body>
 </html>
-
-
