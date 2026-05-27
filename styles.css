@@ -2715,11 +2715,9 @@ video {
 }
 
 @media (max-width: 760px) {
-  .project-atlas {
-    bottom: 132px;
-  }
-
-  .chapter-meter {
-    bottom: 82px;
+  .project-atlas,
+  .chapter-meter,
+  .scroll-progress {
+    display: none;
   }
 }
