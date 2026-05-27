@@ -1,60 +1,287 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>概念视觉提案完整案例 | 视觉设计作品集</title>
-    <meta name="description" content="概念视觉提案完整案例展示，呈现从方向探索到版式落地的设计过程。" />
-    <link rel="stylesheet" href="styles.css?v=mobile-polish" />
+    <title>AIGC Designer | AI 赋能设计解决方案</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='10' fill='%23020b18'/%3E%3Cpath d='M19 4 34 31h-8.1L19 18.6 12.1 31H4L19 4Z' fill='%231fd9ff'/%3E%3Cpath d='M19 13.2 29.4 31h-6.1L19 23.2 14.7 31H8.6L19 13.2Z' fill='%238a5cff'/%3E%3C/svg%3E" />
+    <meta
+      name="description"
+      content="AIGC Designer 为品牌、产品和空间项目提供平面设计、品牌视觉、3D 建模渲染、创意提案、产品外观设计与 AI 工作流解决方案。"
+    />
+    <link rel="stylesheet" href="./aigc-design.css" />
   </head>
-  <body class="case-page">
+  <body>
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="index.html#top" aria-label="返回首页">作品集</a>
-      <nav class="nav-links" aria-label="案例页导航">
-        <a href="index.html#aigc">返回视觉提案</a>
-        <a href="#static">完整案例</a>
+      <a class="brand" href="#home" aria-label="AIGC Designer 首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 38 38" role="img">
+            <path d="M19 4 34 31h-8.1L19 18.6 12.1 31H4L19 4Z" />
+            <path d="M19 13.2 29.4 31h-6.1L19 23.2 14.7 31H8.6L19 13.2Z" />
+          </svg>
+        </span>
+        <span>
+          <strong>AIGC DESIGNER</strong>
+          <small>AI · DESIGN · FUTURE</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="主导航">
+        <a class="is-active" href="#home">首页</a>
+        <a href="#services">服务能力</a>
+        <a href="#solution">解决方案</a>
+        <a href="#cases">作品案例</a>
+        <a href="#why">关于我</a>
+        <a href="#brief">观点分享</a>
       </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="motion-toggle" type="button" aria-label="暂停动态效果">
+          <span class="pause-icon"></span>
+        </button>
+        <a class="pill-button" href="#brief">合作咨询 <span>↗</span></a>
+      </div>
     </header>
 
-    <main>
-      <section class="case-page-hero">
-        <span>完整案例 / Concept Visual Proposal</span>
-        <h1>概念视觉提案</h1>
-        <p>
-          从方向探索、画面筛选到商业设计落地，整理为适合连续阅读的完整案例。
-        </p>
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>AIGC 赋能设计<br />让想象成为<span>解决方案</span></h1>
+          <p>
+            我使用前沿的 AIGC 技术与设计思维，帮助品牌与产品突破边界，创造更具价值的未来体验。
+          </p>
+          <div class="signature">Aige Designer</div>
+          <ul class="hero-capabilities" aria-label="核心能力">
+            <li><i data-icon="spark"></i>AI 创意生成</li>
+            <li><i data-icon="pen"></i>视觉设计</li>
+            <li><i data-icon="cube"></i>3D 可视化</li>
+            <li><i data-icon="motion"></i>策略落地</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="primary-button" href="#cases">查看我的作品 <span>↗</span></a>
+            <a class="secondary-button" href="#solution">了解服务能力</a>
+          </div>
+        </div>
+
+        <div class="hero-stage" id="hero-stage" aria-label="AIGC 设计工作台可视化">
+          <div class="halo halo-a"></div>
+          <div class="halo halo-b"></div>
+          <div class="portrait-shell">
+            <img src="./assets/aigc-designer/aigc-command-center.png" alt="AIGC 多模态创意工作台" />
+          </div>
+          <div class="holo-base"></div>
+          <div class="float-panel workflow-card" data-depth="18">
+            <small>AIGC WORKFLOW</small>
+            <span>Prompt</span>
+            <span>Generate</span>
+            <span>Refine</span>
+            <span>Output</span>
+          </div>
+          <div class="float-panel image-card" data-depth="-12">
+            <small>IMG_03.PNG</small>
+            <div class="mini-preview"></div>
+          </div>
+          <div class="float-panel model-card" data-depth="10">
+            <small>3D MODEL</small>
+            <div class="cube">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="float-panel brand-card" data-depth="-16">
+            <small>BRAND VISUAL</small>
+            <strong>A</strong>
+          </div>
+        </div>
+        <a class="scroll-hint" href="#services">向下探索更多</a>
       </section>
 
-      <section id="static" class="case-page-section" aria-labelledby="static-title">
-        <div class="case-page-heading">
-          <span>01</span>
-          <h2 id="static-title">完整方案展示</h2>
+      <section class="section services" id="services">
+        <div class="section-title">
+          <span></span>
+          <h2>服务能力</h2>
+          <p>用设计与 AI 的力量，构建完整的视觉与产品解决方案</p>
         </div>
-        <div class="ip-reference-stack aigc-reference-stack" aria-label="概念视觉提案完整案例">
-          <figure>
-            <img src="assets/portfolio/aigc-design/1.png" alt="概念视觉提案第 1 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/aigc-design/2.png" alt="概念视觉提案第 2 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/aigc-design/3.png" alt="概念视觉提案第 3 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/aigc-design/4.png" alt="概念视觉提案第 4 张" />
-          </figure>
-          <figure>
-            <img src="assets/portfolio/aigc-design/5.png" alt="概念视觉提案第 5 张" />
-          </figure>
+        <div class="service-grid" id="service-grid"></div>
+        <div class="service-lab">
+          <div class="service-visual" aria-live="polite">
+            <div class="work-preview" id="work-preview">
+              <div class="work-frame" id="work-frame"></div>
+              <div class="work-caption">
+                <small id="work-type">海报</small>
+                <strong id="work-name">未来科技品牌发布海报</strong>
+              </div>
+            </div>
+            <div class="service-orbit"></div>
+            <div class="service-object" id="service-object"></div>
+          </div>
+          <div class="service-copy">
+            <small id="service-index">01 / 06</small>
+            <h3 id="service-title">平面设计</h3>
+            <p id="service-desc"></p>
+            <div class="tag-row" id="service-tags" aria-label="切换作品类型"></div>
+          </div>
         </div>
+      </section>
+
+      <section class="section solution" id="solution">
+        <div class="section-title wide">
+          <span></span>
+          <h2>AIGC 如何解决用户问题</h2>
+          <p>以用户需求为核心，结合 AI 能力，快速探索并验证最佳方案</p>
+        </div>
+        <div class="process-board">
+          <div class="process-cards" id="process-cards"></div>
+          <div class="process-line" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="engine-row">
+            <button type="button" data-engine="AI 创意引擎">AI 创意引擎</button>
+            <button type="button" data-engine="多模态生成">多模态生成</button>
+            <button type="button" data-engine="人机协同">人机协同</button>
+            <button type="button" data-engine="高效落地">高效落地</button>
+          </div>
+        </div>
+
+        <div class="simulator">
+          <div>
+            <h3>项目推演器</h3>
+            <p>选择项目目标，系统会模拟 AIGC 从需求拆解到交付包的推进路径。</p>
+            <div class="sim-tabs" id="sim-tabs"></div>
+          </div>
+          <div class="sim-output" id="sim-output" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section cases" id="cases">
+        <div class="section-title split">
+          <div>
+            <span></span>
+            <h2>作品案例</h2>
+          </div>
+          <button class="text-button" id="shuffle-cases" type="button">探索更多项目 ↗</button>
+        </div>
+        <div class="case-viewport">
+          <div class="case-track" id="case-track"></div>
+        </div>
+        <div class="case-controls">
+          <button class="round-button" id="case-prev" type="button" aria-label="上一个案例">‹</button>
+          <div class="dots" id="case-dots"></div>
+          <button class="round-button" id="case-next" type="button" aria-label="下一个案例">›</button>
+        </div>
+      </section>
+
+      <section class="section why" id="why">
+        <div class="why-copy">
+          <h2>为什么选择与我合作</h2>
+          <div class="reason-list">
+            <article>
+              <i data-icon="speed"></i>
+              <div>
+                <h3>效率提升</h3>
+                <p>AIGC 加速创意与执行，缩短项目周期 60%+</p>
+              </div>
+            </article>
+            <article>
+              <i data-icon="idea"></i>
+              <div>
+                <h3>创意无限</h3>
+                <p>多维度创意探索，突破传统设计边界</p>
+              </div>
+            </article>
+            <article>
+              <i data-icon="solve"></i>
+              <div>
+                <h3>问题解决</h3>
+                <p>以结果为导向，提供可落地的解决方案</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="metric-panel">
+          <div class="metric-grid">
+            <article><strong data-count="120">0</strong><span>完成项目</span></article>
+            <article><strong data-count="98">0</strong><span>客户满意度</span></article>
+            <article><strong data-count="3">0</strong><span>设计与 AI 经验</span></article>
+            <article><strong data-count="30">0</strong><span>合作品牌</span></article>
+          </div>
+          <div class="chart-card">
+            <canvas id="chart-canvas" width="720" height="260" aria-label="设计效率可视化曲线"></canvas>
+            <div class="radial-score">
+              <span>满意度</span>
+              <strong>98%</strong>
+            </div>
+            <ul>
+              <li><b style="--c:#7c5cff"></b>品牌设计 <span>40%</span></li>
+              <li><b style="--c:#23d7ff"></b>3D 渲染 <span>28%</span></li>
+              <li><b style="--c:#f35cff"></b>产品设计 <span>18%</span></li>
+              <li><b style="--c:#4b72ff"></b>其他 <span>14%</span></li>
+            </ul>
+          </div>
+          <div class="calculator">
+            <label for="duration">当前项目周期：<strong id="duration-label">30 天</strong></label>
+            <input id="duration" type="range" min="10" max="90" value="30" />
+            <p>引入 AIGC 工作流后，预计可压缩至 <strong id="saved-days">12 天</strong>，并提前完成风格验证。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta" id="brief">
+        <div class="cta-copy">
+          <h2>准备好用 <span>AIGC</span><br />开启你的下一个项目了吗？</h2>
+          <p>无论是品牌升级、产品创新，还是视觉突破，我都能为你提供从灵感到落地的完整解决方案。</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="generate-brief" type="button">立即咨询合作 <span>↗</span></button>
+            <a class="secondary-button" href="mailto:lwt13800@163.com">发送需求 Brief</a>
+          </div>
+        </div>
+        <aside class="wechat-card" aria-label="微信合作咨询">
+          <div class="wechat-qr">
+            <img src="./assets/aigc-designer/wechat-qr.png" alt="微信二维码" />
+          </div>
+          <div class="wechat-copy">
+            <span>微信咨询</span>
+            <h3>扫码添加微信</h3>
+            <p>发送项目类型、预算范围与期望交付，我会根据需求回复合作建议。</p>
+            <a href="mailto:lwt13800@163.com">lwt13800@163.com</a>
+          </div>
+        </aside>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span>© 2026 概念视觉提案</span>
-      <a href="index.html#aigc">返回首页视觉提案</a>
+    <footer class="footer">
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 38 38"><path d="M19 4 34 31h-8.1L19 18.6 12.1 31H4L19 4Z" /><path d="M19 13.2 29.4 31h-6.1L19 23.2 14.7 31H8.6L19 13.2Z" /></svg>
+        </span>
+        <span><strong>AIGC DESIGNER</strong><small>AI · DESIGN · FUTURE</small></span>
+      </div>
+      <div>
+        <h3>快速导航</h3>
+        <a href="#home">首页</a>
+        <a href="#services">服务能力</a>
+        <a href="#solution">解决方案</a>
+        <a href="#cases">作品案例</a>
+      </div>
+      <div>
+        <h3>服务</h3>
+        <a href="#services">平面设计</a>
+        <a href="#services">品牌视觉</a>
+        <a href="#services">3D 建模渲染</a>
+        <a href="#services">创意提案</a>
+      </div>
+      <div>
+        <h3>联系我</h3>
+        <a href="mailto:lwt13800@163.com">lwt13800@163.com</a>
+        <a href="tel:13712345678">137 1234 5678</a>
+        <span>深圳 · 中国</span>
+      </div>
+      <p class="copyright">© 2026 AIGC Designer. All Rights Reserved.</p>
+      <a class="to-top" href="#home" aria-label="回到顶部">↑</a>
     </footer>
+
+    <script src="./aigc-design.js"></script>
   </body>
 </html>
-
-
