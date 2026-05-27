@@ -10,6 +10,40 @@ if (!body.classList.contains("case-page")) {
   cursor.className = "design-cursor";
   document.body.appendChild(cursor);
 
+  const heroTitle = document.querySelector(".hero h1");
+  if (heroTitle) {
+    const sourceText = heroTitle.innerText.trim();
+    heroTitle.setAttribute("aria-label", sourceText.replace(/\s+/g, " "));
+
+    const titleLines = sourceText.split(/\n+/).filter(Boolean);
+    heroTitle.replaceChildren();
+    titleLines.forEach((line, lineIndex) => {
+      const lineElement = document.createElement("span");
+      lineElement.className = "hero-title-line";
+      line.match(/\S+|\s+/g)?.forEach((token) => {
+        if (/^\s+$/.test(token)) {
+          const spaceElement = document.createElement("span");
+          spaceElement.className = "hero-title-space";
+          spaceElement.textContent = " ";
+          lineElement.appendChild(spaceElement);
+          return;
+        }
+
+        const wordElement = document.createElement("span");
+        wordElement.className = "hero-title-word";
+        Array.from(token).forEach((char) => {
+          const charElement = document.createElement("span");
+          charElement.className = "hero-title-char";
+          charElement.textContent = char;
+          wordElement.appendChild(charElement);
+        });
+        lineElement.appendChild(wordElement);
+      });
+      heroTitle.appendChild(lineElement);
+      if (lineIndex < titleLines.length - 1) heroTitle.appendChild(document.createElement("br"));
+    });
+  }
+
   const interactive = "a, button, .project-gallery, .ip-preview-card, figure";
   const repertoireGroups = Array.from(document.querySelectorAll(".repertoire div"));
   const repertoireExpandedHeight = 230;
@@ -36,6 +70,20 @@ if (!body.classList.contains("case-page")) {
       }
     }
 
+    const titleChars = document.querySelectorAll(".hero-title-char");
+    if (titleChars.length) {
+      titleChars.forEach((char) => {
+        const rect = char.getBoundingClientRect();
+        const charX = rect.left + rect.width / 2;
+        const charY = rect.top + rect.height / 2;
+        const distance = Math.hypot(event.clientX - charX, event.clientY - charY);
+        const influence = Math.max(0, 1 - distance / 150);
+        char.style.setProperty("--title-lift", `${-18 * influence}px`);
+        char.style.setProperty("--title-scale", `${1 + 0.09 * influence}`);
+        char.style.setProperty("--title-glow", `${influence}`);
+      });
+    }
+
     const activeRepertoireGroup = getRepertoireGroupAtPoint(event.clientX, event.clientY);
     repertoireGroups.forEach((group) => {
       group.classList.toggle("is-expanded", group === activeRepertoireGroup);
@@ -47,6 +95,14 @@ if (!body.classList.contains("case-page")) {
   document.querySelector(".repertoire")?.addEventListener("pointerleave", (event) => {
     if (getRepertoireGroupAtPoint(event.clientX, event.clientY)) return;
     repertoireGroups.forEach((group) => group.classList.remove("is-expanded"));
+  });
+
+  heroTitle?.addEventListener("pointerleave", () => {
+    document.querySelectorAll(".hero-title-char").forEach((char) => {
+      char.style.removeProperty("--title-lift");
+      char.style.removeProperty("--title-scale");
+      char.style.removeProperty("--title-glow");
+    });
   });
 
   window.addEventListener("scroll", () => {

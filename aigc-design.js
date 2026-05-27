@@ -28,11 +28,11 @@ const services = [
     icon: "plane",
   },
   {
-    title: "品牌视觉",
-    desc: "品牌识别、VI 系统、视觉规范与延展素材，用 AIGC 扩展风格方向并保持统一。",
-    tags: ["品牌 VI", "视觉系统", "规范落地"],
-    accent: "#8a5cff",
-    icon: "brand",
+    title: "视频创意",
+    desc: "短片脚本、分镜画面、动态视觉与传播节奏，用 AI 快速推演视频概念和成片方向。",
+    tags: ["短片脚本", "分镜设计", "动态视觉"],
+    accent: "#e657ff",
+    icon: "concept",
   },
   {
     title: "3D 建模渲染",
@@ -40,13 +40,6 @@ const services = [
     tags: ["产品渲染", "场景视觉", "材质探索"],
     accent: "#4b72ff",
     icon: "cube",
-  },
-  {
-    title: "创意提案",
-    desc: "把策略、视觉、文案、分镜和落地清单整合成清晰可决策的方案路径。",
-    tags: ["方案推演", "风格板", "提案叙事"],
-    accent: "#e657ff",
-    icon: "concept",
   },
   {
     title: "产品外观设计",
@@ -134,9 +127,9 @@ const workNames = {
   产品渲染: "智能设备光影渲染",
   场景视觉: "未来办公场景视觉",
   材质探索: "金属与玻璃 CMF 方案",
-  方案推演: "创意策略提案版式",
-  风格板: "情绪风格板组合",
-  提案叙事: "客户汇报叙事页",
+  短片脚本: "视频创意脚本推演",
+  分镜设计: "关键镜头分镜设计",
+  动态视觉: "动态视觉风格实验",
   CMF: "产品 CMF 色材趋势板",
   外观概念: "桌面设备外观概念",
   趋势验证: "用户场景趋势验证",
@@ -321,7 +314,7 @@ function activateService(index) {
   document.querySelectorAll(".service-card").forEach((card, cardIndex) => {
     card.classList.toggle("is-active", cardIndex === index);
   });
-  document.querySelector("#service-index").textContent = `${String(index + 1).padStart(2, "0")} / 06`;
+  document.querySelector("#service-index").textContent = `${String(index + 1).padStart(2, "0")} / ${String(services.length).padStart(2, "0")}`;
   document.querySelector("#service-title").textContent = service.title;
   document.querySelector("#service-desc").textContent = service.desc;
   const tagRow = document.querySelector("#service-tags");
@@ -359,9 +352,9 @@ function activateWork(service, workIndex) {
     "3D 建模渲染:产品渲染": "./assets/aigc-designer/work-3d-product-render.png",
     "3D 建模渲染:场景视觉": "./assets/aigc-designer/work-3d-scene-visual.png",
     "3D 建模渲染:材质探索": "./assets/aigc-designer/work-3d-material.png",
-    "创意提案:方案推演": "./assets/aigc-designer/work-proposal-deduction.png",
-    "创意提案:风格板": "./assets/aigc-designer/work-proposal-styleboard.png",
-    "创意提案:提案叙事": "./assets/aigc-designer/work-proposal-story.png",
+    "视频创意:短片脚本": "./assets/aigc-designer/work-proposal-deduction.png",
+    "视频创意:分镜设计": "./assets/aigc-designer/work-proposal-story.png",
+    "视频创意:动态视觉": "./assets/aigc-designer/work-proposal-styleboard.png",
     "产品外观设计:CMF": "./assets/aigc-designer/work-product-cmf.png",
     "产品外观设计:外观概念": "./assets/aigc-designer/work-product-concept.png",
     "产品外观设计:趋势验证": "./assets/aigc-designer/work-product-trend.png",

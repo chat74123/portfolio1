@@ -207,6 +207,31 @@ button {
   gap: 10px;
 }
 
+.home-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(133, 181, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d8e7ff;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+  box-shadow: inset 0 0 18px rgba(31, 217, 255, 0.05);
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(31, 217, 255, 0.52);
+  background: rgba(31, 217, 255, 0.08);
+  color: #fff;
+}
+
 .icon-button,
 .round-button {
   display: grid;
@@ -647,7 +672,7 @@ button {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -750,14 +775,15 @@ button {
 
 .service-lab {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(330px, 0.54fr);
-  gap: 22px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
   margin-top: 20px;
   overflow: hidden;
 }
 
 .service-visual {
   position: relative;
+  grid-column: span 3;
   aspect-ratio: 16 / 9;
   min-height: 0;
   border: 1px solid var(--line);
@@ -896,6 +922,7 @@ button {
 
 .service-copy {
   display: flex;
+  grid-column: span 2;
   min-height: 320px;
   flex-direction: column;
   justify-content: center;
@@ -1566,6 +1593,11 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .service-visual,
+  .service-copy {
+    grid-column: auto;
+  }
+
   .service-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1585,6 +1617,15 @@ button {
   }
 
   .pill-button {
+    display: none;
+  }
+
+  .home-button {
+    width: 42px;
+    padding: 0;
+  }
+
+  .home-button-label {
     display: none;
   }
 
