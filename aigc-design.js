@@ -29,8 +29,8 @@ const services = [
   },
   {
     title: "视频创意",
-    desc: "短片脚本、分镜画面、动态视觉与传播节奏，用 AI 快速推演视频概念和成片方向。",
-    tags: ["短片脚本", "分镜设计", "动态视觉"],
+    desc: "产品广告、分镜画面、动态视觉与传播节奏，用 AI 快速推演视频概念和成片方向。",
+    tags: ["产品广告", "分镜设计", "动态视觉"],
     accent: "#e657ff",
     icon: "concept",
   },
@@ -127,7 +127,7 @@ const workNames = {
   产品渲染: "智能设备光影渲染",
   场景视觉: "未来办公场景视觉",
   材质探索: "金属与玻璃 CMF 方案",
-  短片脚本: "视频创意脚本推演",
+  产品广告: "运动鞋产品广告",
   分镜设计: "关键镜头分镜设计",
   动态视觉: "动态视觉风格实验",
   CMF: "产品 CMF 色材趋势板",
@@ -339,6 +339,7 @@ function activateWork(service, workIndex) {
   const style = workStyles[workIndex % workStyles.length];
   const frame = document.querySelector("#work-frame");
   const preview = document.querySelector("#work-preview");
+  const video = document.querySelector("#work-video");
   const visual = document.querySelector(".service-visual");
   const object = document.querySelector("#service-object");
   const realWorks = {
@@ -352,8 +353,7 @@ function activateWork(service, workIndex) {
     "3D 建模渲染:产品渲染": "./assets/aigc-designer/work-3d-product-render.png",
     "3D 建模渲染:场景视觉": "./assets/aigc-designer/work-3d-scene-visual.png",
     "3D 建模渲染:材质探索": "./assets/aigc-designer/work-3d-material.png",
-    "视频创意:短片脚本": "./assets/aigc-designer/work-proposal-deduction.png",
-    "视频创意:分镜设计": "./assets/aigc-designer/work-proposal-story.png",
+    "视频创意:分镜设计": "./assets/aigc-designer/sneaker-storyboard.png",
     "视频创意:动态视觉": "./assets/aigc-designer/work-proposal-styleboard.png",
     "产品外观设计:CMF": "./assets/aigc-designer/work-product-cmf.png",
     "产品外观设计:外观概念": "./assets/aigc-designer/work-product-concept.png",
@@ -362,10 +362,26 @@ function activateWork(service, workIndex) {
     "AI 工作流:流程优化": "./assets/aigc-designer/work-ai-process.png",
     "AI 工作流:知识库": "./assets/aigc-designer/work-ai-knowledge.png",
   };
+  const videoWorks = {
+    "视频创意:产品广告": "./assets/aigc-designer/sneaker-ad.mp4",
+  };
   const image = realWorks[`${service.title}:${type}`] || "";
+  const videoSrc = videoWorks[`${service.title}:${type}`] || "";
 
   preview.classList.toggle("has-real-art", Boolean(image));
+  preview.classList.toggle("has-real-video", Boolean(videoSrc));
   visual.classList.toggle("has-real-art", Boolean(image));
+  visual.classList.toggle("has-real-video", Boolean(videoSrc));
+  if (videoSrc) {
+    if (!video.src.endsWith(videoSrc.replace("./", ""))) {
+      video.src = videoSrc;
+    }
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+  }
   frame.style.setProperty("--art-image", image ? `url("${image}")` : "none");
   frame.style.setProperty("--art-a", style.a);
   frame.style.setProperty("--art-b", style.b);

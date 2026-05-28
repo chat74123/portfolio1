@@ -814,6 +814,17 @@ button {
   transition: background 240ms ease, filter 240ms ease;
 }
 
+.work-video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #02050b;
+}
+
 .work-frame::before,
 .work-frame::after {
   position: absolute;
@@ -829,8 +840,22 @@ button {
   display: none;
 }
 
+.work-preview.has-real-video .work-frame {
+  display: none;
+}
+
+.work-preview.has-real-video .work-video {
+  display: block;
+}
+
+.work-preview.has-real-video .work-caption {
+  display: none;
+}
+
 .service-visual.has-real-art .service-orbit,
-.service-visual.has-real-art .service-object {
+.service-visual.has-real-art .service-object,
+.service-visual.has-real-video .service-orbit,
+.service-visual.has-real-video .service-object {
   display: none;
 }
 
